@@ -1,12 +1,14 @@
 import { ADD_MOVIES, ADD_TO_FAVOURITES, REMOVE_FROM_FAVOURITES, SET_SHOW_FAVOURITES } from '../actions';
+import { combineReducers } from 'redux';
 
-const initialMovieState = {
+const initialMoviesState = {
     list: [],
     favourites: [],
     showFavourites: false
 }
 
-export default function movies (state = initialMovieState , action){
+export function movies (state = initialMoviesState , action){
+    console.log("Movies Reducer!");
     // if(action.type === ADD_MOVIES) {
     //     return {
     //         ...state, //Spread operator used here to copy from old 
@@ -54,3 +56,36 @@ export default function movies (state = initialMovieState , action){
 //So we return a new state instead of modifying an old state here
 
 // const ADD_MOVIES = 'ADD_MOVIES';
+
+const initialSearchState = {
+    result: {}
+};
+export function search (state = initialSearchState, action){
+    console.log("SearchReducer!")
+    return state;
+}
+
+const initialRootState = {
+    movies: initialMoviesState,
+    search: initialSearchState
+}
+
+//No need for this method as it is created by React for us
+// export default function rootReducer (state = initialRootState, action){
+//     return {
+//         movies: movies(state.movies, action),//Here we are defining that movies should be 
+//         search: search(state.search, action)//Managed by moviesReducer and search by searchReducer
+//     }
+// }
+
+// property in state: reducer reponsible for that property in state
+// Internally it calls our methods like the one defined above now in comments
+// export default combineReducers({
+//     movies: movies,
+//     search: search
+// })
+//When the name of the property and reducer is same, we can use shorthand like this = 
+export default combineReducers({
+    movies,
+    search
+})

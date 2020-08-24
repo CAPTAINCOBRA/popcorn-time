@@ -27,9 +27,9 @@ class App extends Component {
   }
 
   isMovieFavourite = (movie) => { //This will check in state if the movie is in favourite array or not
-    const {favourites} = this.props.store.getState() //getState will give us this = {list: [], favourites: []}
+    const {movies} = this.props.store.getState() //getState will give us this = {list: [], favourites: []}
 
-    const index = favourites.indexOf(movie);
+    const index = movies.favourites.indexOf(movie);
 
     if(index !== -1){
       //Found the movie
@@ -44,7 +44,8 @@ class App extends Component {
 
 
   render() {
-    const {list, favourites, showFavourites} = this.props.store.getState(); //
+    const {movies} = this.props.store.getState(); // { movies: {}, search: {} }
+    const {list, favourites, showFavourites} = movies;
     console.log("RENDER!", this.props.store.getState());
 
     const displayMovies = showFavourites ? favourites : list; 
