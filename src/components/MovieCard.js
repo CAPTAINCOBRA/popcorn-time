@@ -24,7 +24,9 @@ class MovieCard extends Component {
                     <div className="title"> {movie.Title} </div>
                     <div className="plot"> {movie.Plot} </div>
                     <div className="footer">
-                        <div className="rating" > {movie.imdbRating} </div>
+                        <div className="rating" > Imdb {movie.imdbRating} </div>
+                        <div className="rating" > Year: {movie.Year} </div>
+                        <div className="rating" > Genre: {movie.Genre} </div>
                         {
                             isFavourite
                             ? <button onClick={this.handleUnFavouriteClick} className="unfavourite-btn">UnFavourite</button>
