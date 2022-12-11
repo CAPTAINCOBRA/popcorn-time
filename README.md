@@ -102,3 +102,7 @@ As a default case, return state(as you got it).
 
 
 Create another reducer and combine all into 1. 
+
+We use connect function to connect s component to the redux store
+Create connect function in App.js and declare what data we want from the store and which component we want to connect to the store.
+We pass a afunction as a cllback method inside connect

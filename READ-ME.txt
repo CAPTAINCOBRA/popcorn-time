@@ -36,3 +36,32 @@ Afterwards we fix our decoupling in the App.js file. Since now the state is of t
 
 We need not create the rootReducer method as REact/REedux creates it for us.
 
+
+Context****************************
+We create StoreContext in Index.js and wrap the App component with Provider tags.
+Pass the store as value to Provider.
+We create Provider component and move the store there via props.
+We enclose App component in the Provider component tags.
+Import StoreContext in the App component
+We have context property inside the StoreContext
+In the App component return inside StoreContext.Consumer tags because the stuff inside uses store
+Return the entire UI of the App component inside the callback function inside the Consumer component
+Store will be passed as an argument to this callback (it is the value that we pass to the Provider)
+
+Create an App Wrapper and use the consumer there and pass the store which we get from the callback function
+as props to this App component 
+We can now access store in any component using the Consumer component
+
+
+We use connect function to connect s component to the redux store
+Create connect function in App.js and declare what data we want from the store and which component we want to connect to the store.
+We pass a afunction as a cllback method inside connect
+
+connect function will call the callback with Redux store state
+In connect function line, we declare that we want these properties from the store as props inside our App component. 
+
+Connect will return an alltogethor new component and this will be 
+
+If there are any changes only the connected function will be refreshed
+Connect function will give a brand new component
+
